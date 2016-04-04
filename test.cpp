@@ -13,10 +13,10 @@
 #include <cstdint>
 #include <cmath>
 #include <iostream>
-#include <vector>
 #include <ctime>
 #include <memory>
 #include "fks.h"
+#include "core_function.h"
 
 template <typename T>
 void OutputSequence(const std::string &name, const std::vector<T> &sequence) {

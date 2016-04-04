@@ -8,16 +8,12 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "fks.h"
+#include "core_function.h"
 
 #include "test.h"
 
 
 std::vector<int> ReadElements(std::istream& istream = std::cin);
-
-std::vector<bool> CheckIfElementsBelongToSet(
-    const std::vector<int>& set_elements,
-    const std::vector<int>& elements_to_check);
 
 void PrintCheckResults(const std::vector<bool>& check_results,
                        std::ostream& ostream = std::cout);
@@ -50,21 +46,6 @@ std::vector<int> ReadElements(std::istream& istream) {
     numbers.push_back(number);
   }
   return numbers;
-}
-
-std::vector<bool> CheckIfElementsBelongToSet(
-    const std::vector<int>& set_elements,
-    const std::vector<int>& elements_to_check) {
-  FixedSet fixed_set;
-  std::mt19937 generator;
-  generator.seed(838);
-  fixed_set.Initialize(set_elements, generator);
-  std::vector<bool> check_results;
-  check_results.reserve(elements_to_check.size());
-  for (const int number : elements_to_check) {
-    check_results.push_back(fixed_set.Contains(number));
-  }
-  return check_results;
 }
 
 void PrintCheckResults(const std::vector<bool>& check_results,
